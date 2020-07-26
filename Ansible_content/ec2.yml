@@ -1,0 +1,15 @@
+---
+ - name: launch ec2-server
+   hosts: localhost
+   connection: local
+   tasks:
+    - name: launch
+      ec2:
+       key_name: cicdkey
+       region: ap-south-1
+       instance_type: t2.micro
+       image: ami-052c08d70def0ac62
+       wait: yes
+       count: 1
+       vpc_subnet_id: subnet-465a5e2e
+       assign_public_ip: yes
